@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE create SYSTEM "http://strategyobject.com/dtd/create.dtd">
+<create>
+    <!--==================================== -->
+    <!-- TRADER_REGISTRATION - Main document table (maps to TC_TraderGen) -->
+    <!--==================================== -->
+    <table name="TRADER_REGISTRATION">
+        <!-- Instance ID (required - unique document identifier) -->
+        <column name="INSTANCE_ID" type="INTEGER" null="false"/>
+        <!-- Trader Information (ds(TRD)) -->
+        <column name="TRD_NAM" type="VARCHAR" size="100"/>
+        <column name="TRD_TIN" type="VARCHAR" size="20"/>
+        <column name="TRD_TYP" type="VARCHAR" size="3"/>
+        <column name="TRD_STS" type="VARCHAR" size="20"/>
+        <column name="TRD_REG_DAT" type="DATE"/>
+        <column name="TRD_ACT" type="CHAR" size="1"/>
+        <!-- Address (ds(ADR)) -->
+        <column name="ADR_STR" type="VARCHAR" size="200"/>
+        <column name="ADR_CTY" type="VARCHAR" size="100"/>
+        <!-- Primary Key -->
+        <primary_key>
+            <column name="INSTANCE_ID"/>
+        </primary_key>
+        <!-- Indexes -->
+        <index name="IDX_TRD_TYP">
+            <column name="TRD_TYP"/>
+        </index>
+        <index name="IDX_TRD_TIN">
+            <column name="TRD_TIN"/>
+        </index>
+    </table>
+    <!-- ═══════════════════════════════════ -->
+    <!-- TRADER_LICENSES - SubDocument table (maps to TC_TraderLicence) -->
+    <!-- ═══════════════════════════════════ -->
+    <table name="TRADER_LICENSES">
+        <column name="INSTANCE_ID" type="INTEGER" null="false"/>
+        <column name="KEY_RNK" type="INTEGER" null="false"/>
+        <!-- License fields (ds(LIC)) -->
+        <column name="TYP" type="VARCHAR" size="10"/>
+        <column name="REF_NBR" type="VARCHAR" size="30"/>
+        <column name="ISS_DAT" type="DATE"/>
+        <column name="EXP_DAT" type="DATE"/>
+        <column name="AUT" type="VARCHAR" size="100"/>
+        <primary_key>
+            <column name="INSTANCE_ID"/>
+            <column name="KEY_RNK"/>
+        </primary_key>
+    </table>
+</create>

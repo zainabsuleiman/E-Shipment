@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shortcuts>
+    <!-- HOWTO
+       attribute 'bindername' - the name of the binder [result of BinderShortcut.getBinderName():String]
+       attribute 'operationName' - operation name : Find, New, Create, Open, Delete, Unlock, Lock, Design...
+       attrubute 'key' - string presentation of curent key: F, N, K, Insert, F5, Home....
+       attribute 'modifier' - string presentation of modifier key: Ctrl, Shift, Alt...
+                    There is allowed combination of them: Ctrl+Alt
+
+                    examples:
+    <shortcut bindername="so.externalMail ExternalMail" operationName="Find" key="F" modifer="Ctrl"/>
+    <shortcut bindername="so.demo DemoMultiPages" operationName="New" key="K" modifer="Ctrl+Shift"/>
+    -->
+
+</shortcuts>

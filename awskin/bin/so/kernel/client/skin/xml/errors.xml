@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource>
+	<gradate enabled="always" />
+	<!-- "always", "never" or "user" -->
+	<backgroundFilter color="#FAD201" opacity="#40" />
+	<!-- <backgroundGradientFilter x1="50" y1="50" color1="#FFFFFF" opacity1="#00" x2="-1" y2="100" color2="#0c048c" opacity2="#74" operation="1"/> -->
+	<backgroundGradientFilter x1="0" y1="0" color1="#E5BE01" opacity1="#40" x2="0" y2="0" color2="#00A1DE" opacity2="#66" operation="1" />
+</resource>

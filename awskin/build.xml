@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?> <!--
+     **************************************************************************
+     * SOClass                                               Version: 2.0.225 *
+     *                                                                        *
+     * This software is the proprietary information of STRATEGY OBJECT.       *
+     * Use is subject to license terms.                                       *
+     *                                                                        *
+     * Copyright (c) 1996-2004                                STRATEGY OBJECT *
+     * All rights reserved.                           Sun, 05-Sep-2004, 17:12 *
+     **************************************************************************
+     
+-->
+<project basedir="." default="jars" name="Client-Skin">
+	
+  <property file="build.properties"/>	  	
+  <property file="${build.dir}/global.properties"/>
+	
+  <target name="-print" unless="l.printed">
+    <echo>      Project: ${ant.project.name}
+      Processing ${ant.file} </echo>
+    <property name="src" value="src"/>
+    <property name="lib" value="lib"/>  	
+    <property name="jarname" value="skin.jar"/>  	  	
+  </target>
+
+  <!--
+    Compile java files. It will compile only update files.
+  -->
+  <target name="compile" depends="-print" description="Compile project">
+    <javac srcdir="${src}"
+           destdir="${src}"/>
+  </target>
+
+  <!--
+    Make jar(s).
+  -->
+  <target name="jars" 
+          depends="-print, compile"
+          description="Make jars">
+    <mkdir dir="${lib}"/>
+    <jar destfile="${lib}/${jarname}"
+         basedir="${src}"
+         compress="true"
+         manifest="manifest.mf">
+      <exclude name="**/*.java"/>
+      <exclude name="**/*.form"/>
+      <exclude name="**/.*"/>
+      <exclude name="**/*.html"/>
+    </jar>
+  </target>
+	
+
+	
+	
+  <target name="clean" description="Clean all build.">
+    <delete failonerror="false" dir="${release_dir}"/>
+    <property name="fastcompile" value="true"/>
+    <delete failonerror="false">
+      <fileset dir="lib">
+        <include name="**/*.jar"/>
+      </fileset>
+    </delete>
+  </target>
+
+  <target name="clientDeploy"
+          depends="-print,jars"
+          description="Deploys client JARs."
+          if="so.client.install.dir">
+    <copy file="${lib}/${jarname}" todir="${so.client.install.dir}/lib"/>
+  </target>
+
+  <target name="synchronize" description="Deploys all JARs." depends="clientDeploy"/>
+
+  <target name="-somlng" if="languages">
+    <ant dir="${Server}" target="somlng" inheritAll="false">
+      <property name="prepare.dir" location="${prepare.dir}"/>
+      <property name="languages" value="${languages}"/>
+    </ant>
+  </target>
+
+
+	
+</project>

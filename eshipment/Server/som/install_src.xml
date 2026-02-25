@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+     **************************************************************************
+     * @ProjectName_____________________________________@    Version: @VerNr@ *
+     *                                                                        *
+     * This software is the proprietary information of STRATEGY OBJECT.       *
+     * Use is subject to license terms.                                       *
+     *                                                                        *
+     * Copyright (c) 1997-2009 STRATEGY OBJECT                                *
+     * All rights reserved.                           @VersionDate__________@ *
+     **************************************************************************
+-->
+<!DOCTYPE module SYSTEM "http://www.strategyobject.com/dtd/install.dtd">
+
+<module name="@ModuleBaseName@">
+  <property name="locale_dir" value="${so.installer.locale.dir}"/>
+  <property name="cfg_dir" value="${so.installer.config.dir}"/>
+
+  <!--
+    Copy files into server directory.
+  -->
+  <copy toDir="${so.installer.module.dir}">
+    <fileset dir="/modules">
+      <include name="**/*.jar"/>
+    </fileset>
+  </copy>
+
+  <!--
+    Properties for DB.
+  -->
+  <db manager="${gcf.drv_manager}"
+      url="${gcf.url}"
+      user="${gcf.user_name}"
+      password="${gcf.password}">
+    <GCF>
+      <table type="History" name="Historysw_eshipment"/>
+      <table type="IED" name="IEDsw_eshipment"/>
+      <table type="Locks" name="Lockssw_eshipment"/>
+      <table type="Track" name="Tracksw_eshipment"/>
+    </GCF>
+    <appserver dbsource="jdbc/sw.eshipment.gcf" name="sw.eshipment.gcf">
+      <pool minPoolSize="1" maxPoolSize="-1" maxIdleTime="5"/>
+    </appserver>
+  </db>
+
+
+
+  <!--
+    Import into Kernel DB
+  -->
+  <system>
+    <!--
+      Modify config files
+    -->
+    <config name="properties">
+      <fileset dir="config">
+        <include name="**/*.properties"/>
+      </fileset>
+    </config>
+
+    <config name="language">
+      <fileset dir="lng">
+        <include name="**/*.properties"/>
+      </fileset>
+    </config>
+
+    <config name="format">
+      <fileset dir="format">
+        <include name="**/*.properties"/>
+      </fileset>
+    </config>
+
+    <DL>
+    </DL>
+
+  </system>
+
+</module>

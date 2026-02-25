@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+  <!-- Main application database -->
+  <group type="connection">
+    <property name="swtraining.drv_manager" from="driver" />
+    <property name="swtraining.url" from="url" default="Registry" />
+    <property name="swtraining.user_name" from="user" />
+    <property name="swtraining.password" from="password" />
+    <description><![CDATA[Connection to database Module GCF is required.
+This database is available. You can create new or use the same database.
+Then enter connection properties in this form.]]></description>
+  </group>
+  <!-- GCF (Government Control Framework) database -->
+  <group type="connection">
+    <property name="gcf.drv_manager" from="driver" />
+    <property name="gcf.url" from="url" default="RegistryGCF" />
+    <property name="gcf.user_name" from="user" />
+    <property name="gcf.password" from="password" />
+    <description><![CDATA[Connection to database Module GCF is required.
+This database is available. You can create new or use the same database.
+Then enter connection properties in this form.]]></description>
+  </group>
+  <!-- Multimedia storage database -->
+  <group type="connection">
+    <property name="multimediainfo.drv_manager" from="driver" />
+    <property name="multimediainfo.url" from="url" default="asywdb" />
+    <property name="multimediainfo.user_name" from="user" />
+    <property name="multimediainfo.password" from="password" />
+    <description><![CDATA[Connection to database Module GCF is required.
+This database is available. You can create new or use the same database.
+Then enter connection properties in this form.]]></description>
+  </group>
+</properties>

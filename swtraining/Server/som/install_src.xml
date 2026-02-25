@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module name="@ModuleBaseName@">
+  <property name="locale_dir" value="${so.installer.locale.dir}" />
+  <property name="cfg_dir" value="${so.installer.config.dir}" />
+
+  <copy toDir="${so.installer.module.dir}">
+    <fileset dir="/modules">
+      <include name="**/*.jar" />
+    </fileset>
+  </copy>
+
+  <db manager="${swtraining.drv_manager}" url="${swtraining.url}"
+      user="${swtraining.user_name}"
+      password="${swtraining.password}">
+
+    <create>
+      <fileset dir="db">
+        <include name="swtraining_create.xml" />
+      </fileset>
+    </create>
+
+    <insert>
+      <fileset dir="db">
+        <include name="swtraining_insert.xml" />
+      </fileset>
+    </insert>
+
+    <appserver dbsource="jdbc/sw.swtraining" name="sw.swtraining">
+      <pool minPoolSize="1" maxPoolSize="-1" maxIdleTime="5" />
+    </appserver>
+  </db>
+
+  <db manager="${gcf.drv_manager}" url="${gcf.url}" user="${gcf.user_name}"
+      password="${gcf.password}">
+    <GCF>
+      <table type="History" name="sw_swtraining_History" />
+      <table type="IED" name="sw_swtraining_IED" />
+      <table type="Locks" name="sw_swtraining_Locks" />
+      <table type="Track" name="sw_swtraining_Track" />
+    </GCF>
+    <appserver dbsource="jdbc/sw.swtraining.gcf" name="sw.swtraining.gcf">
+      <pool minPoolSize="1" maxPoolSize="-1" maxIdleTime="5" />
+    </appserver>
+  </db>
+
+  <db manager="${multimediainfo.drv_manager}" url="${multimediainfo.url}"
+      user="${multimediainfo.user_name}" password="${multimediainfo.password}">
+    <tableprototype module="so.ems" name="Multimediainfo">
+      <table type="Multimedia" name="sw_swtraining_Multimedia" />
+      <table type="MultimediaResources" name="sw_swtraining_MultimediaRes" />
+      <table type="ResourcesDetails" name="sw_swtraining_ResDetails" />
+      <table type="IDGenerator" name="sw_swtraining_IDGenerator" />
+    </tableprototype>
+    <appserver dbsource="jdbc/sw.swtraining.Multimediainfo"
+               name="sw.swtraining.Multimediainfo">
+      <pool minPoolSize="1" maxPoolSize="-1" maxIdleTime="5" />
+    </appserver>
+  </db>
+
+  <system>
+
+    <config name="properties">
+      <fileset dir="config">
+        <include name="**/*.properties" />
+      </fileset>
+    </config>
+    <config name="language">
+      <fileset dir="lng">
+        <include name="**/*.properties" />
+      </fileset>
+    </config>
+    <config name="format">
+      <fileset dir="format">
+        <include name="**/*.properties" />
+      </fileset>
+    </config>
+    <!-- Business Units -->
+    <BU name="Trader Registration">Trader registration operations</BU>
+    <BU name="Trader Reports">Trader registration reports</BU>
+    <BU name="Trader Admin">Trader administration</BU>
+    <!-- Binder Definitions -->
+    <binder name="B_TraderReg" status="">
+      <field name="server"
+             value="sw.swtraining.registry.trader.server.S_TraderReg" />
+      <field name="dom" value="sw.swtraining.registry.trader.D_TraderReg" />
+      <field name="client"
+
+      value="sw.swtraining.registry.trader.client.DC_TraderReg" />
+      <access bu="Trader Registration">
+        <full />
+      </access>
+      <access bu="Trader Reports">
+        <full />
+      </access>
+    </binder>
+    <!-- =================================== -->
+    <!-- MENU CONFIGURATION - DOCUMENT LIBRARY -->
+    <!-- =================================== -->
+    <DL>
+      <!-- Use Existing root folder or create new one -->
+      <folder name="ASYCUDA" icon="img/UN_VerySmallFlag.gif">
+        <!-- give full access to admin group -->
+        <access bu="Admin">
+          <full />
+        </access>
+        <!-- Create your own menu folder Use Existing root folder or create
+      new
+        one -->
+        <!-- OR Use Existing one -->
+        <folder name="Trader Registration" icon="img/Icon_Folder.gif">
+          <access bu="Admin">
+            <full />
+          </access>
+          <!-- Finally add your e-document menu item -->
+          <item name="Trader" icon="">
+            <field name="binder" value="B_TraderReg" />
+            <field name="skin"
+                   value="sw.swtraining.registry.trader.client.VD_TraderReg"
+            />
+            <!-- give full access to admin or any business unit -->
+            <access bu="Admin">
+              <full />
+            </access>
+            <access bu="Trader Admin">
+              <full />
+            </access>
+          </item>
+        </folder>
+      </folder>
+    </DL>
+  </system>
+</module>

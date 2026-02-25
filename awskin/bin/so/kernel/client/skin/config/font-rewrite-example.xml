@@ -1,0 +1,64 @@
+<font-rewrite>
+<rewrite ui="Button.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="ToggleButton.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="RadioButton.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="CheckBox.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="ColorChooser.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="ComboBox.font" font="luxi"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="Label.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="List.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="MenuBar.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="MenuItem.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="RadioButtonMenuItem.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="CheckBoxMenuItem.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="Menu.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="PopupMenu.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="OptionPane.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="Panel.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="ProgressBar.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="ScrollPane.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="Viewport.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="TabbedPane.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="Table.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="TableHeader.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="TextField.font" font="luxi"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="PasswordField.font" font="luxi"  size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="TextArea.font" font="luxi"  size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="TextPane.font" font="luxi"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="EditorPane.font" font="luxi"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="TitledBorder.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="ToolBar.font" font="Vera"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="ToolTip.font" font="luxi"   size="24" style="0"	
+ 	  enabled="true" attached="true"/>
+<rewrite ui="Tree.font" font="luxi"     size="24" style="0"	
+ 	  enable="true" attached="true"/>
+</font-rewrite>

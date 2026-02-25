@@ -1,0 +1,64 @@
+<font-rewrite>
+<rewrite ui="Button.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="ToggleButton.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="RadioButton.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="CheckBox.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="ColorChooser.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="ComboBox.font" font="SansSerif" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="Label.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="List.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="MenuBar.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="MenuItem.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="RadioButtonMenuItem.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="CheckBoxMenuItem.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="Menu.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="PopupMenu.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="OptionPane.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="Panel.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="ProgressBar.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="ScrollPane.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="Viewport.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="TabbedPane.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="Table.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="TableHeader.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="TextField.font" font="SansSerif" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="PasswordField.font" font="MonoSpaced" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="TextArea.font" font="MonoSpaced" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="TextPane.font" font="SansSerif" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="EditorPane.font" font="SansSerif" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="TitledBorder.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="ToolBar.font" font="Dialog" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="ToolTip.font" font="SansSerif" size="12" style="0"	
+ 	  enabled="false" attached="false"/>
+<rewrite ui="Tree.font" font="SansSerif" size="12" style="1"	
+ 	  enabled="true" attached="false"/>
+</font-rewrite>

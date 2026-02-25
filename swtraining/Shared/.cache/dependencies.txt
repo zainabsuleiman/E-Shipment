@@ -1,0 +1,15 @@
+||:sw.swtraining.registry.trader.D_TraderReg
+sw.swtraining.registry.trader.D_TraderReg
+so.kernel.core.KDocument
+sw.swtraining.registry.trader.C_TraderReg
+so.kernel.core.DataSet
+||:sw.swtraining.registry.trader.DS_License
+java.lang.Object
+sw.swtraining.registry.trader.DS_License
+||:sw.swtraining.registry.trader.F_TraderReg
+java.lang.Object
+sw.swtraining.registry.trader.F_TraderReg
+||:sw.swtraining.registry.trader.C_TraderReg
+java.lang.Object
+so.kernel.core.Operation
+sw.swtraining.registry.trader.C_TraderReg
