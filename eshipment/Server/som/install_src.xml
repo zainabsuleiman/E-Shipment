@@ -124,6 +124,8 @@
       <!-- ROOT -->
       <folder name="ASYCUDA" icon="img/UN_VerySmallFlag.gif">
         <access bu="Admin"><full /></access>
+        <access bu="Admin"><full /></access>
+        <access bu="Shipment Operations"><full /></access>
 
         <!-- MODULE FOLDER -->
         <folder name="E-Shipment" icon="img/Icon_Folder.gif">

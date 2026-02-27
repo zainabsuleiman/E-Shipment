@@ -23,7 +23,6 @@ public final class F_Shipment extends FinderInfo implements C_Shipment {
         addFinder_SearchFld(ds("RTE").de(WH_FROM), lng("Source Whse"),   Global.STRING_TYPE, so.kernel.core.types.StringType.ANY);
         addFinder_SearchFld(ds("HDR").de(PLT_NBR), lng("Truck Plate"),   Global.STRING_TYPE, so.kernel.core.types.StringType.ANY);
         addFinder_SearchFld(ds("HDR").de(SEL_NBR), lng("Seal Number"),   Global.STRING_TYPE, so.kernel.core.types.StringType.ANY);
-        addFinder_SearchFld(de(STS),               lng("Status"),        Global.STRING_TYPE, so.kernel.core.types.StringType.ANY);
 
         // ===================================
         // VIEW FIELDS (Result Grid Columns)
@@ -35,13 +34,11 @@ public final class F_Shipment extends FinderInfo implements C_Shipment {
         addFinder_ViewFld(ds("HDR").de(PLT_NBR), lng("Plate No"));
         addFinder_ViewFld(ds("HDR").de(SEL_NBR), lng("Seal No"));
         addFinder_ViewFld(ds("RTE").de(DEP_DT),  lng("Departure"), "DateTime");
-        addFinder_ViewFld(de(STS),               lng("Status"));
 
         // Use local helper to match your preferred style
-        setDefaultSort(getList(ds("HDR").de(REF_NBR)), UP);
+//        setDefaultSort(getList(ds("HDR").de(REF_NBR)), UP);
 
         this.setMaximizable(true);
-        this.setStatusSearching(true);
     }
 
     /**
@@ -54,5 +51,5 @@ public final class F_Shipment extends FinderInfo implements C_Shipment {
     private static String lng(String property) {
         return so.i18n.IntlObj.createMessage("{sw.eshipment}", property);
     }
-    
+
 }

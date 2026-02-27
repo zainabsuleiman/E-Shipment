@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Module: sw.eshipment/1
+Module-Name: eshipment
+Module-Type: Application Modules
+Module-License: N/A
+Module-Summary: Tracking Document 
+Module-Description: A document to trach goods moving between warehouses before they reach the final export stage
+Module-Specification-Version: 1.0
+Module-Kernel-Dependencies:  SERVER/1 >= 2.2.52
+Module-Module-Dependencies: so.tes/1 >= 1.3.1,so.admin/1 >= 3.3.22,so.ems/1 >= 1.6.4,so.hte/1 >= 2.2.9
+Module-Install: sw.eshipment.module.EshipmentModule
+Class-Path: ext/eshipment.jar
+Shared-Jar: eshipment.jar
+Client-Jar: eshipmentc.jar
+Server-Jar: eshipments.jar
+
