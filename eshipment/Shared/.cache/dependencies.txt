@@ -1,0 +1,17 @@
+||:sw.eshipment.C_Shipment
+java.lang.Object
+so.kernel.core.Operation
+sw.eshipment.C_Shipment
+||:sw.eshipment.D_Shipment
+so.kernel.core.KDocument
+sw.eshipment.C_Shipment
+sw.eshipment.D_Shipment
+so.kernel.core.DataSet
+||:sw.eshipment.F_Shipment
+so.kernel.core.types.StringType
+so.kernel.Global
+so.kernel.core.FinderInfo
+so.kernel.core.FinderInfo$DataSegment
+sw.eshipment.C_Shipment
+so.i18n.IntlObj
+sw.eshipment.F_Shipment

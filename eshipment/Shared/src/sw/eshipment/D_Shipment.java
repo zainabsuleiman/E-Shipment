@@ -2,6 +2,7 @@ package sw.eshipment;
 
 import so.kernel.core.DataSet;
 import so.kernel.core.KDocument;
+import so.i18n.IntlObj;
 
 
 
@@ -37,6 +38,10 @@ public class D_Shipment extends KDocument implements C_Shipment {
 
         // Global Status
         add(STS);
+    }
+
+    public static String lng(String property) {
+        return IntlObj.createMessage("{sw.eshipment}", property);
     }
 }
 

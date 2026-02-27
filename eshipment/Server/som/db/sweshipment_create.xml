@@ -7,20 +7,23 @@
     <!--================================================== -->
     <table name="SHIPMENT_TRANSFER_NOTES">
         <!-- Instance ID (required unique identifier) -->
-        <column name="INSTANCEID" type="INTEGER" null="false"/>
+        <column name="INSTANCEID"    type="INTEGER"   null="false"/>
 
         <!-- Header Information (HDR) -->
-        <column name="REF_NBR" type="VARCHAR" size="30"/>
-        <column name="TRD_TIN" type="VARCHAR" size="20"/>
-        <column name="PLT_NBR" type="VARCHAR" size="15"/>
-        <column name="DRV_NAM" type="VARCHAR" size="100"/>
-        <column name="STATUS"  type="VARCHAR" size="20"/>
+        <column name="SHP_REF_NBR"   type="VARCHAR"   size="30"/>
+        <column name="SHP_TRD_TIN"   type="VARCHAR"   size="15"/>
+        <column name="SHP_PLT_NBR"   type="VARCHAR"   size="15"/>
+        <column name="SHP_DRV_NAM"   type="VARCHAR"   size="100"/>
+        <column name="SHP_SEL_NBR"   type="VARCHAR"   size="20"/>
 
         <!-- Route Information (RTE) -->
-        <column name="WH_FROM"  type="VARCHAR" size="10"/>
-        <column name="WH_TO"    type="VARCHAR" size="10"/>
-        <column name="DEP_DT"   type="TIMESTAMP"/>
-        <column name="ARV_DT"   type="TIMESTAMP"/>
+        <column name="SHP_WH_SOURCE" type="VARCHAR"   size="10"/>
+        <column name="SHP_WH_TARGET" type="VARCHAR"   size="10"/>
+        <column name="SHP_DEP_DATE"  type="TIMESTAMP"/>
+        <column name="SHP_ARV_DATE"  type="TIMESTAMP"/>
+
+        <!-- Global Status -->
+        <column name="SHP_STATUS"    type="VARCHAR"   size="20"/>
 
         <!-- Primary Key -->
         <primary_key>
@@ -29,13 +32,13 @@
 
         <!-- Indexes for Fast Search (F_Shipment) -->
         <index name="IDX_SHP_REF">
-            <column name="REF_NBR"/>
+            <column name="SHP_REF_NBR"/>
         </index>
         <index name="IDX_SHP_WH_FROM">
-            <column name="WH_FROM"/>
+            <column name="SHP_WH_SOURCE"/>
         </index>
         <index name="IDX_SHP_PLT">
-            <column name="PLT_NBR"/>
+            <column name="SHP_PLT_NBR"/>
         </index>
     </table>
 
@@ -45,13 +48,9 @@
     <!-- ================================================== -->
     <table name="SHIPMENT_CARGO_ITEMS">
         <column name="INSTANCEID" type="INTEGER" null="false"/>
-        <column name="KEY_RNK"    type="INTEGER" null="false"/> <!-- Sequence for multi-line -->
-
-        <!-- Cargo fields (CRG) -->
+        <column name="KEY_RNK"    type="INTEGER" null="false"/>
         <column name="HS_CODE"    type="VARCHAR" size="12"/>
         <column name="PKG_COUNT"  type="INTEGER"/>
-        <column name="SEAL_NBR"   type="VARCHAR" size="30"/>
-
         <primary_key>
             <column name="INSTANCEID"/>
             <column name="KEY_RNK"/>
