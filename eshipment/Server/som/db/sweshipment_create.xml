@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE create SYSTEM "http://strategyobject.com/dtd/create.dtd">
+<create>
+    <!--================================================== -->
+    <!-- SHIPMENT_TRANSFER_NOTES - Main document table     -->
+    <!-- Maps to TC_ShipmentGen                            -->
+    <!--================================================== -->
+    <table name="SHIPMENT_TRANSFER_NOTES">
+        <!-- Instance ID (required unique identifier) -->
+        <column name="INSTANCEID" type="INTEGER" null="false"/>
+
+        <!-- Header Information (HDR) -->
+        <column name="REF_NBR" type="VARCHAR" size="30"/>
+        <column name="TRD_TIN" type="VARCHAR" size="20"/>
+        <column name="PLT_NBR" type="VARCHAR" size="15"/>
+        <column name="DRV_NAM" type="VARCHAR" size="100"/>
+        <column name="STATUS"  type="VARCHAR" size="20"/>
+
+        <!-- Route Information (RTE) -->
+        <column name="WH_FROM"  type="VARCHAR" size="10"/>
+        <column name="WH_TO"    type="VARCHAR" size="10"/>
+        <column name="DEP_DT"   type="TIMESTAMP"/>
+        <column name="ARV_DT"   type="TIMESTAMP"/>
+
+        <!-- Primary Key -->
+        <primary_key>
+            <column name="INSTANCEID"/>
+        </primary_key>
+
+        <!-- Indexes for Fast Search (F_Shipment) -->
+        <index name="IDX_SHP_REF">
+            <column name="REF_NBR"/>
+        </index>
+        <index name="IDX_SHP_WH_FROM">
+            <column name="WH_FROM"/>
+        </index>
+        <index name="IDX_SHP_PLT">
+            <column name="PLT_NBR"/>
+        </index>
+    </table>
+
+    <!-- ================================================== -->
+    <!-- SHIPMENT_CARGO_ITEMS - Multi-line Cargo Table      -->
+    <!-- Maps to the CRG Segment                            -->
+    <!-- ================================================== -->
+    <table name="SHIPMENT_CARGO_ITEMS">
+        <column name="INSTANCEID" type="INTEGER" null="false"/>
+        <column name="KEY_RNK"    type="INTEGER" null="false"/> <!-- Sequence for multi-line -->
+
+        <!-- Cargo fields (CRG) -->
+        <column name="HS_CODE"    type="VARCHAR" size="12"/>
+        <column name="PKG_COUNT"  type="INTEGER"/>
+        <column name="SEAL_NBR"   type="VARCHAR" size="30"/>
+
+        <primary_key>
+            <column name="INSTANCEID"/>
+            <column name="KEY_RNK"/>
+        </primary_key>
+    </table>
+</create>

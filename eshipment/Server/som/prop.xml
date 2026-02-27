@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-     **************************************************************************
-     * @ProjectName_____________________________________@    Version: @VerNr@ *
-     *                                                                        *
-     * This software is the proprietary information of STRATEGY OBJECT.       *
-     * Use is subject to license terms.                                       *
-     *                                                                        *
-     * Copyright (c) 1997-2009 STRATEGY OBJECT                                *
-     * All rights reserved.                           @VersionDate__________@ *
-     **************************************************************************
--->
-
 <properties>
+  <!-- Main E-Shipment application database -->
   <group type="connection">
-    <property name="gcf.drv_manager" from="driver" />
-    <property name="gcf.url" from="url"  default="xxxGCF.mod" />
-    <property name="gcf.user_name" from="user" />
-    <property name="gcf.password" from="password" />
-    <description><![CDATA[Connection to database Module GCF is required.
-This database is available. You can create new or use the same database.
-Then enter connection properties in this form.]]></description>
+    <property name="eshipment.drv_manager" from="driver" />
+    <property name="eshipment.url" from="url" default="Registry" />
+    <property name="eshipment.user_name" from="user" />
+    <property name="eshipment.password" from="password" />
+    <description><![CDATA[Connection to the E-Shipment Database is required for transaction storage.]]></description>
   </group>
 
+  <!-- GCF (Generic Connection Framework) database for workflow and tracking -->
+  <group type="connection">
+    <property name="gcf.drv_manager" from="driver" />
+    <property name="gcf.url" from="url" default="RegistryGCF" />
+    <property name="gcf.user_name" from="user" />
+    <property name="gcf.password" from="password" />
+    <description><![CDATA[Connection to the GCF Database is required for workflow state and audit history.]]></description>
+  </group>
+
+  <!-- Multimedia storage database for waybills and cargo photos -->
+  <group type="connection">
+    <property name="multimediainfo.drv_manager" from="driver" />
+    <property name="multimediainfo.url" from="url" default="asywdb" />
+    <property name="multimediainfo.user_name" from="user" />
+    <property name="multimediainfo.password" from="password" />
+    <description><![CDATA[Connection to the Multimedia Database is required for document attachments.]]></description>
+  </group>
 </properties>

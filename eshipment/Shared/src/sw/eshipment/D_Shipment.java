@@ -21,6 +21,7 @@ public class D_Shipment extends KDocument implements C_Shipment {
         hdr.add(TIN);
         hdr.add(PLT_NBR);
         hdr.add(DRV_NAM);
+        hdr.add(SEL_NBR);
 
         // B. The Route (From & To)
         DataSet rte = seg("RTE");
@@ -33,7 +34,6 @@ public class D_Shipment extends KDocument implements C_Shipment {
         DataSet crg = seg(CRG);
         crg.add(HS_COD);
         crg.add(PKG_CNT);
-        crg.add(SEL_NBR);
 
         // Global Status
         add(STS);

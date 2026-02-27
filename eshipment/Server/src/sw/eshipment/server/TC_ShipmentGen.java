@@ -24,6 +24,7 @@ public class TC_ShipmentGen extends GCFTableConnector implements C_Shipment {
         add(ds("HDR").de(TIN),     "SHP_TRD_TIN", Types.VARCHAR);
         add(ds("HDR").de(PLT_NBR), "SHP_PLT_NBR", Types.VARCHAR);
         add(ds("HDR").de(DRV_NAM), "SHP_DRV_NAM", Types.VARCHAR);
+        add(ds("HDR").de(SEL_NBR), "SHP_SEL_NBR", Types.VARCHAR);
 
         // ===================================
         // B. Route Information (ds("RTE"))

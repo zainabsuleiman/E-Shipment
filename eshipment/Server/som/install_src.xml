@@ -1,78 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-     **************************************************************************
-     * @ProjectName_____________________________________@    Version: @VerNr@ *
-     *                                                                        *
-     * This software is the proprietary information of STRATEGY OBJECT.       *
-     * Use is subject to license terms.                                       *
-     *                                                                        *
-     * Copyright (c) 1997-2009 STRATEGY OBJECT                                *
-     * All rights reserved.                           @VersionDate__________@ *
-     **************************************************************************
--->
-<!DOCTYPE module SYSTEM "http://www.strategyobject.com/dtd/install.dtd">
-
 <module name="@ModuleBaseName@">
-  <property name="locale_dir" value="${so.installer.locale.dir}"/>
-  <property name="cfg_dir" value="${so.installer.config.dir}"/>
 
-  <!--
-    Copy files into server directory.
-  -->
+  <!-- =================================== -->
+  <!-- COMMON PROPERTIES -->
+  <!-- =================================== -->
+  <property name="locale_dir" value="${so.installer.locale.dir}" />
+  <property name="cfg_dir" value="${so.installer.config.dir}" />
+
+  <!-- Copy JARs -->
   <copy toDir="${so.installer.module.dir}">
     <fileset dir="/modules">
-      <include name="**/*.jar"/>
+      <include name="*.jar" />
     </fileset>
   </copy>
 
-  <!--
-    Properties for DB.
-  -->
+  <!-- =================================== -->
+  <!-- MAIN DATABASE -->
+  <!-- =================================== -->
+  <db manager="${eshipment.drv_manager}"
+      url="${eshipment.url}"
+      user="${eshipment.user_name}"
+      password="${eshipment.password}">
+
+    <create>
+      <fileset dir="db">
+        <include name="eshipment_create.xml" />
+      </fileset>
+    </create>
+
+    <insert>
+      <fileset dir="db">
+        <include name="eshipment_insert.xml" />
+      </fileset>
+    </insert>
+
+    <appserver dbsource="jdbc/sw.eshipment" name="sw.eshipment">
+      <pool minPoolSize="1" maxPoolSize="-1" maxIdleTime="5" />
+    </appserver>
+  </db>
+
+  <!-- =================================== -->
+  <!-- GCF DATABASE -->
+  <!-- =================================== -->
   <db manager="${gcf.drv_manager}"
       url="${gcf.url}"
       user="${gcf.user_name}"
       password="${gcf.password}">
+
     <GCF>
-      <table type="History" name="Historysw_eshipment"/>
-      <table type="IED" name="IEDsw_eshipment"/>
-      <table type="Locks" name="Lockssw_eshipment"/>
-      <table type="Track" name="Tracksw_eshipment"/>
+      <table type="History" name="sw_eshipment_History" />
+      <table type="IED"     name="sw_eshipment_IED" />
+      <table type="Locks"   name="sw_eshipment_Locks" />
+      <table type="Track"   name="sw_eshipment_Track" />
     </GCF>
+
     <appserver dbsource="jdbc/sw.eshipment.gcf" name="sw.eshipment.gcf">
-      <pool minPoolSize="1" maxPoolSize="-1" maxIdleTime="5"/>
+      <pool minPoolSize="1" maxPoolSize="-1" maxIdleTime="5" />
     </appserver>
   </db>
 
+  <!-- =================================== -->
+  <!-- MULTIMEDIA DATABASE -->
+  <!-- =================================== -->
+  <db manager="${multimediainfo.drv_manager}"
+      url="${multimediainfo.url}"
+      user="${multimediainfo.user_name}"
+      password="${multimediainfo.password}">
 
+    <tableprototype module="so.ems" name="Multimediainfo">
+      <table type="Multimedia"          name="sw_eshipment_Multimedia" />
+      <table type="MultimediaResources" name="sw_eshipment_MultimediaRes" />
+      <table type="ResourcesDetails"    name="sw_eshipment_ResDetails" />
+      <table type="IDGenerator"         name="sw_eshipment_IDGenerator" />
+    </tableprototype>
 
-  <!--
-    Import into Kernel DB
-  -->
+    <appserver dbsource="jdbc/sw.eshipment.Multimediainfo"
+               name="sw.eshipment.Multimediainfo">
+      <pool minPoolSize="1" maxPoolSize="-1" maxIdleTime="5" />
+    </appserver>
+  </db>
+
+  <!-- =================================== -->
+  <!-- SYSTEM CONFIGURATION -->
+  <!-- =================================== -->
   <system>
-    <!--
-      Modify config files
-    -->
+
+    <!-- CONFIG FILES -->
     <config name="properties">
       <fileset dir="config">
-        <include name="**/*.properties"/>
+        <include name="*.properties" />
       </fileset>
     </config>
 
     <config name="language">
       <fileset dir="lng">
-        <include name="**/*.properties"/>
+        <include name="*.properties" />
       </fileset>
     </config>
 
-    <config name="format">
-      <fileset dir="format">
-        <include name="**/*.properties"/>
-      </fileset>
-    </config>
+    <!-- BUSINESS UNITS -->
+    <BU name="Shipment Operations">Shipment processing</BU>
+    <BU name="Shipment Monitoring">Shipment monitoring</BU>
+    <BU name="Shipment Admin">Shipment administration</BU>
 
+    <!-- BINDER -->
+    <binder name="B_Shipment" status="">
+      <field name="server" value="sw.eshipment.server.S_Shipment" />
+      <field name="dom"    value="sw.eshipment.D_Shipment" />
+      <field name="client" value="sw.eshipment.client.DC_Shipment" />
+
+      <!-- IMPORTANT: allow Admin -->
+      <access bu="Shipment Operations"><full /></access>
+      <access bu="Shipment Monitoring"><full /></access>
+      <access bu="Shipment Admin"><full /></access>
+      <access bu="Admin"><full /></access>
+    </binder>
+
+    <!-- =================================== -->
+    <!-- DOCUMENT LIBRARY (MENU) -->
+    <!-- =================================== -->
     <DL>
+
+      <!-- ROOT -->
+      <folder name="ASYCUDA" icon="img/UN_VerySmallFlag.gif">
+        <access bu="Admin"><full /></access>
+
+        <!-- MODULE FOLDER -->
+        <folder name="E-Shipment" icon="img/Icon_Folder.gif">
+          <access bu="Admin"><full /></access>
+          <access bu="Shipment Operations"><full /></access>
+
+          <!-- MENU ITEM -->
+          <item name="Shipment" icon="img/Btn_Dispatch.gif">
+            <field name="binder" value="B_Shipment" />
+            <field name="skin"
+                   value="sw.eshipment.client.VD_Shipment" />
+
+            <access bu="Admin"><full /></access>
+            <access bu="Shipment Operations"><full /></access>
+          </item>
+
+        </folder>
+      </folder>
+
     </DL>
 
   </system>
-
 </module>

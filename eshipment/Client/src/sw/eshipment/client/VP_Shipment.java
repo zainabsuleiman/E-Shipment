@@ -96,21 +96,24 @@ public class VP_Shipment extends ElfVisualPage implements C_Shipment {
 
     @Override
     public void initFacets() {
-        // Header
-        addFacetText(Ftx_RefNbr, de(REF_NBR), "X30");
-        addFacetText(Ftx_Tin, de(TIN), "X15");
+        // --- A. Header Segment (Inside "HDR") ---
+        // These must use ds("HDR") because in D_Shipment you used seg("HDR")
+        addFacetText(Ftx_RefNbr, ds("HDR").de(REF_NBR), "X30");
+        addFacetText(Ftx_Tin,    ds("HDR").de(TIN),     "X15");
+        addFacetText(Ftx_PltNbr, ds("HDR").de(PLT_NBR), "X15");
+        addFacetText(Ftx_DrvNam, ds("HDR").de(DRV_NAM), "X100");
+        addFacetText(Ftx_SelNbr, ds("HDR").de(SEL_NBR), "X20");
+
+        // --- B. Route Segment (Inside "RTE") ---
+        // These must use ds("RTE") because in D_Shipment you used seg("RTE")
+        addFacetText(Ftx_WhFrom, ds("RTE").de(WH_FROM), "X10");
+        addFacetText(Ftx_WhTo,   ds("RTE").de(WH_TO),   "X10");
+        addFacetDate(Fdt_ArvDt,  ds("RTE").de(ARV_DT),  "Date");
+        addFacetDate(Fdt_DepDt,  ds("RTE").de(DEP_DT),  "Date");
+
+        // --- Global Root ---
+        // STS is correct as de(STS) because you used add(STS) at the root of D_Shipment
         addFacetLabel(Flb_Sts, de(STS));
-
-        // Route
-        addFacetText(Ftx_WhFrom, de(WH_FROM), "X10");
-        addFacetText(Ftx_WhTo, de(WH_TO), "X10");
-        addFacetDate(Fdt_ArvDt, de(ARV_DT), "DateTime");
-
-        // Transport
-        addFacetText(Ftx_PltNbr, de(PLT_NBR), "X15");
-        addFacetText(Ftx_DrvNam, de(DRV_NAM), "X100");
-        addFacetText(Ftx_SelNbr, de(SEL_NBR), "X20");
-        addFacetDate(Fdt_DepDt, de(DEP_DT), "DateTime");
     }
 
     @Override
