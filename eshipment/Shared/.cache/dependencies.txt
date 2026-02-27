@@ -5,6 +5,7 @@ sw.eshipment.C_Shipment
 ||:sw.eshipment.D_Shipment
 so.kernel.core.KDocument
 sw.eshipment.C_Shipment
+so.i18n.IntlObj
 sw.eshipment.D_Shipment
 so.kernel.core.DataSet
 ||:sw.eshipment.F_Shipment

@@ -1,7 +1,3 @@
-||:sw.eshipment.module.EshipmentDocumentInfo
-sw.eshipment.module.EshipmentDocumentInfo
-so.kernel.server.Server
-so.kernel.server.DocumentModuleInfo
 ||:sw.eshipment.server.TC_ShipmentGen
 sw.eshipment.C_Shipment
 so.kernel.server.GCFServerBinder
@@ -12,6 +8,10 @@ so.kernel.server.Server
 so.kernel.server.ServerBinder$DataSegment
 so.kernel.server.GCFTableConnector
 java.sql.Types
+||:sw.eshipment.module.EshipmentDocumentInfo
+sw.eshipment.module.EshipmentDocumentInfo
+so.kernel.server.Server
+so.kernel.server.DocumentModuleInfo
 ||:sw.eshipment.module.EshipmentModule
 sw.eshipment.module.EshipmentDocumentInfo
 so.kernel.core.modules.ModuleInstall

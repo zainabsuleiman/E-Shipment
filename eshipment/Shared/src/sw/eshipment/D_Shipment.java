@@ -5,11 +5,14 @@ import so.kernel.core.KDocument;
 import so.i18n.IntlObj;
 
 
-
 public class D_Shipment extends KDocument implements C_Shipment {
 
     public D_Shipment() {
         super("E-Transfer Note");
+    }
+    public void define_FinderModel() {
+
+        define_Finder(F_Shipment.finder);
     }
 
     @Override
